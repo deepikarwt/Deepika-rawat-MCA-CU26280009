@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Events</title>
+</head>
+<body>
+    <h2>Mouseover and Mouseout Events</h2>
+
+    <div id="box" style="width:250px; height:150px;
+         background-color:lightblue; text-align:center;
+         padding-top:50px; box-sizing:border-box;">
+
+        Move Mouse Here
+
+    </div>
+
+    <script>
+        let box = document.getElementById("box");
+
+        box.addEventListener("mouseover", function() {
+            box.style.backgroundColor = "yellow";
+        });
+
+        box.addEventListener("mouseout", function() {
+            box.style.backgroundColor = "lightblue";
+        });
+    </script>
+</body>
+</html>

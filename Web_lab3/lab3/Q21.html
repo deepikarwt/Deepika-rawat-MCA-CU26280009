@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback and Asynchronous JavaScript</title>
+</head>
+<body>
+    <h2>Callback Function and setTimeout</h2>
+
+    <button onclick="startTask()">Start Task</button>
+
+    <p id="result"></p>
+
+    <script>
+        function greet(name, callback) {
+            setTimeout(function() {
+                callback("Hello " + name);
+            }, 2000);
+        }
+
+        function display(message) {
+            document.getElementById("result").innerHTML = message;
+        }
+
+        function startTask() {
+            document.getElementById("result").innerHTML =
+                "Please wait for 2 seconds...";
+
+            greet("Rahul", display);
+        }
+    </script>
+</body>
+</html>

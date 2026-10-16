@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Validation</title>
+</head>
+<body>
+    <h2>Password Validation Form</h2>
+
+    <form id="myForm">
+        Password:
+        <input type="password" id="password" required>
+
+        <br><br>
+
+        Confirm Password:
+        <input type="password" id="confirm" required>
+
+        <br><br>
+
+        <p id="message"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        let password = document.getElementById("password");
+        let confirmPassword = document.getElementById("confirm");
+        let message = document.getElementById("message");
+
+        function validate() {
+            if (confirmPassword.value === "") {
+                message.innerHTML = "Please confirm password";
+                message.style.color = "orange";
+                return false;
+            }
+
+            if (password.value === confirmPassword.value) {
+                message.innerHTML = "Passwords Match";
+                message.style.color = "green";
+                return true;
+            } else {
+                message.innerHTML = "Passwords Do Not Match";
+                message.style.color = "red";
+                return false;
+            }
+        }
+
+        password.addEventListener("input", validate);
+        confirmPassword.addEventListener("input", validate);
+
+        document.getElementById("myForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            if (password.value !== "" && validate()) {
+                alert("Form Submitted Successfully");
+            }
+        });
+    </script>
+</body>
+</html>

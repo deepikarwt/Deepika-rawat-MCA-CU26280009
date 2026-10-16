@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exception Handling</title>
+</head>
+<body>
+    <h2>JSON Exception Handling</h2>
+
+    <textarea id="json" rows="5" cols="40">{"name":"Rahul","age":22}</textarea>
+
+    <br><br>
+
+    <button onclick="parseJSON()">Parse JSON</button>
+
+    <p id="result"></p>
+
+    <script>
+        function parseJSON() {
+            let output = "";
+
+            try {
+                let text = document.getElementById("json").value;
+                let obj = JSON.parse(text);
+
+                output = "Parsed JSON: " + JSON.stringify(obj);
+            }
+            catch (error) {
+                output = "Error: " + error.message;
+            }
+            finally {
+                output += "<br>Finally block executed";
+            }
+
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</body>
+</html>

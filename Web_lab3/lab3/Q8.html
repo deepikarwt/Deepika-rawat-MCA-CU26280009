@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Calculator</title>
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+
+    <input type="number" id="n1" placeholder="First number">
+    <input type="number" id="n2" placeholder="Second number">
+
+    <br><br>
+
+    <button id="add">+</button>
+    <button id="sub">-</button>
+    <button id="mul">*</button>
+    <button id="div">/</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculate(operator) {
+            let input1 = document.getElementById("n1");
+            let input2 = document.getElementById("n2");
+
+            if (input1.value === "" || input2.value === "") {
+                document.getElementById("result").innerHTML =
+                    "Please enter both numbers";
+                return;
+            }
+
+            let a = Number(input1.value);
+            let b = Number(input2.value);
+            let result;
+
+            switch (operator) {
+                case "+":
+                    result = a + b;
+                    break;
+                case "-":
+                    result = a - b;
+                    break;
+                case "*":
+                    result = a * b;
+                    break;
+                case "/":
+                    result = b !== 0 ? a / b : "Cannot divide by zero";
+                    break;
+            }
+
+            document.getElementById("result").innerHTML =
+                "Result: " + result;
+        }
+
+        document.getElementById("add").addEventListener("click", () => calculate("+"));
+        document.getElementById("sub").addEventListener("click", () => calculate("-"));
+        document.getElementById("mul").addEventListener("click", () => calculate("*"));
+        document.getElementById("div").addEventListener("click", () => calculate("/"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci Series</title>
+</head>
+<body>
+    <h2>Fibonacci Series</h2>
+
+    <input type="number" id="num" placeholder="Enter terms" min="1">
+    <button onclick="fibonacci()">Generate</button>
+
+    <p id="result"></p>
+
+    <script>
+        function fibonacci() {
+            let n = Number(document.getElementById("num").value);
+            
+            if (!Number.isInteger(n) || n < 1 || n > 100) {
+                document.getElementById("result").innerHTML =
+                    "Enter a whole number from 1 to 100";
+                return;
+            }
+
+            function generate(type) {
+                let a = 0, b = 1, series = [];
+                let i = 0;
+
+                function next() {
+                    series.push(a);
+                    let c = a + b;
+                    a = b;
+                    b = c;
+                }
+
+                if (type === "for") {
+                    for (i = 0; i < n; i++) next();
+                } else if (type === "while") {
+                    while (i < n) {
+                        next();
+                        i++;
+                    }
+                } else {
+                    do {
+                        next();
+                        i++;
+                    } while (i < n);
+                }
+
+                return series.join(", ");
+            }
+
+            document.getElementById("result").innerHTML =
+                "For Loop: " + generate("for") + "<br>" +
+                "While Loop: " + generate("while") + "<br>" +
+                "Do-While Loop: " + generate("do");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ES6 Features</title>
+</head>
+<body>
+    <h2>JavaScript ES6 Features</h2>
+
+    <button onclick="showDetails()">Show Details</button>
+
+    <p id="result"></p>
+
+    <script>
+        const student = {
+            name: "Rahul",
+            age: 22,
+            course: "MCA"
+        };
+
+        const {name, age, course} = student;
+
+        const display = () => {
+            return `Name: ${name}<br>
+                    Age: ${age}<br>
+                    Course: ${course}`;
+        };
+
+        function showDetails() {
+            document.getElementById("result").innerHTML =
+                display();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Manipulation</title>
+</head>
+<body>
+    <h2>Array Manipulation</h2>
+
+    <button onclick="arrayOperations()">Perform Operations</button>
+
+    <p id="result"></p>
+
+    <script>
+        function arrayOperations() {
+            let arr = [10, 30, 20, 50, 40];
+
+            let output = "Original Array: " + arr + "<br>";
+
+            arr.push(60);
+            output += "After Push: " + arr + "<br>";
+
+            arr.pop();
+            output += "After Pop: " + arr + "<br>";
+
+            arr.sort((a, b) => a - b);
+            output += "Sorted Array: " + arr + "<br>";
+
+            let mapped = arr.map(x => x * 2);
+            output += "Mapped Array: " + mapped + "<br>";
+
+            let filtered = arr.filter(x => x > 25);
+            output += "Filtered Array: " + filtered;
+
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</body>
+</html>

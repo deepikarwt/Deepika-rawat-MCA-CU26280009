@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Table</title>
+</head>
+<body>
+    <h2>Dynamic Table Generator</h2>
+
+    Rows:
+    <input type="number" id="rows" min="1">
+
+    Columns:
+    <input type="number" id="cols" min="1">
+
+    <button onclick="createTable()">Generate Table</button>
+
+    <br><br>
+
+    <div id="result"></div>
+
+    <script>
+        function createTable() {
+            let rows = Number(document.getElementById("rows").value);
+            let cols = Number(document.getElementById("cols").value);
+
+            if (!Number.isInteger(rows) || !Number.isInteger(cols) ||
+                rows < 1 || cols < 1 || rows > 50 || cols > 50) {
+                alert("Enter valid row and column counts (1 to 50)");
+                return;
+            }
+
+            let table = document.createElement("table");
+            table.border = "1";
+            table.cellPadding = "10";
+
+            for (let i = 1; i <= rows; i++) {
+                let tr = document.createElement("tr");
+
+                for (let j = 1; j <= cols; j++) {
+                    let td = document.createElement("td");
+                    td.textContent = "Row " + i + " Col " + j;
+                    tr.appendChild(td);
+                }
+
+                table.appendChild(tr);
+            }
+
+            let result = document.getElementById("result");
+            result.innerHTML = "";
+            result.appendChild(table);
+        }
+    </script>
+</body>
+</html>

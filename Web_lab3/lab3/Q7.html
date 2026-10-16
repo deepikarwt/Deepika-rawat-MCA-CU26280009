@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Object</title>
+</head>
+<body>
+    <h2>Student Object in JavaScript</h2>
+
+    <button onclick="showStudent()">Show Student Details</button>
+
+    <p id="result"></p>
+
+    <script>
+        let student = {
+            name: "Rahul",
+            rollNo: 101,
+            course: "MCA",
+
+            display: function() {
+                return "Name: " + this.name +
+                       "<br>Roll No: " + this.rollNo +
+                       "<br>Course: " + this.course;
+            }
+        };
+
+        function showStudent() {
+            document.getElementById("result").innerHTML =
+                student.display();
+        }
+    </script>
+</body>
+</html>
